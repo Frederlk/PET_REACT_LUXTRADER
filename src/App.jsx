@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { Header, Footer } from "./_containers";
+import * as flsFunctions from "./js/files/functions";
+import dynamicAdaptive from "./js/libs/dynamic_adapt";
 
 const App = () => {
+    useEffect(() => {
+        flsFunctions.menuInit();
+        dynamicAdaptive();
+    }, []);
+
     return (
         <>
             <Header />
-            <main classNameName="page">
+            <main className="page">
                 <div className="main-slider">
                     <div className="main-slider__body _swiper">
                         <div className="main-slider__item item-main-slider">
@@ -23,7 +31,6 @@ const App = () => {
                                     </div>
                                     <div className="item-main-slider__btn btn">
                                         <span className="btn__body">
-                                            {" "}
                                             <span>Присоединиться</span>
                                         </span>
                                     </div>
@@ -48,7 +55,6 @@ const App = () => {
                                     </div>
                                     <div className="item-main-slider__btn btn">
                                         <span className="btn__body">
-                                            {" "}
                                             <span>Присоединиться</span>
                                         </span>
                                     </div>
@@ -403,7 +409,6 @@ const App = () => {
                         </div>
                         <div className="categories__text">
                             <p>
-                                {" "}
                                 Мы рады приветствовать вас на уникальной Лакшери аукционе, здесь вы сможете найти достойные для
                                 себя лоты. Аукцион по продаже недвижимости во многих развитых странах являюется основным
                                 инструментом купли-продажи коммерческой, жилой, и муниципальной недвижимости, в том числе квартир.
@@ -527,18 +532,6 @@ const App = () => {
                                         <div className="slider-quotes__info">
                                             <p>Марк Твен</p>
                                             <p>1935 - 1910</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="slider-quotes__slide">
-                                    <div className="slider-quotes__image">
-                                        <img src="img/quotes/04.png" alt="" />
-                                    </div>
-                                    <div className="slider-quotes__content">
-                                        <div className="slider-quotes__title">«Слыш купи Скайрим»</div>
-                                        <div className="slider-quotes__info">
-                                            <p>Тодд Говард</p>
-                                            <p>1971 - н.в.</p>
                                         </div>
                                     </div>
                                 </div>

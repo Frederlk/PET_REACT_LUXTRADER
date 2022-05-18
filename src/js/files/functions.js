@@ -457,12 +457,7 @@ export function menuInit() {
         });
 
         document.addEventListener("keydown", function (e) {
-            if (
-                bodyLockStatus &&
-                e.which == 27 &&
-                e.code === "Escape" &&
-                document.documentElement.classList.contains("menu-open")
-            ) {
+            if (bodyLockStatus && e.code === "Escape" && document.documentElement.classList.contains("menu-open")) {
                 menuClose();
             }
         });
