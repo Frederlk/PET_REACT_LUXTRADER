@@ -1,28 +1,33 @@
 //<FORM>
 // Снипет (HTML):
 .form {
-	&__row {
-	}
-	&__column {
-	}
-	&__line {
-	}
-	&__input {
-	}
-	&__button {
-	}
-	&__error {
-	}
+    &__row {
+    }
+    &__column {
+    }
+    &__line {
+    }
+    &__input {
+    }
+    &__button {
+    }
+    &__error {
+        color: red;
+        margin: 10px 0px 0px 0px;
+        font-size: 15px;
+        line-height: calc(25 / 15);
+        letter-spacing: 0.1em;
+    }
 }
 //</FORM>
 
 // <BUTTONS>
 // Снипет (HTML): btn
-// @import "button";
+@import "button";
 
 // <INPUTS>
 // Снипет (HTML): inp
-// @import "input";
+@import "input";
 
 // <CHECK>
 // Снипет (HTML): chk

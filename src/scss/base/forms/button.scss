@@ -1,14 +1,96 @@
 //<BUTTONS (a.btn+tab)>
 // Снипет (HTML): btn
 
-.button {
-	display: inline-flex;
-	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
-		}
-	}
-	&._fw {
-		width: 100%;
-	}
+.btn {
+    cursor: pointer;
+    display: inline-flex;
+    min-height: 50px;
+    padding: 0px 0px;
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        left: 0;
+    }
+    &::before {
+        top: 0;
+        background-color: #c3a774;
+    }
+    &::after {
+        bottom: 0;
+        background-color: #8f6630;
+    }
+    &__body {
+        position: relative;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background-image: linear-gradient(to top, #8f6630, #c3a774);
+        }
+        &:before {
+            left: 0;
+        }
+        &::after {
+            right: 0;
+        }
+        span {
+            min-height: 50px;
+            color: #fff;
+            font-size: 15px;
+            font-family: "PFDin";
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 50px;
+            position: relative;
+            &::after {
+                content: "";
+                height: 50px;
+                transition: all 0.6s ease 0s;
+                opacity: 0.1;
+                background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
+                top: 0;
+                left: 0;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+    &_big {
+        .btn__body {
+            width: 100%;
+        }
+        .btn__body span {
+            color: black;
+            font-weight: 500;
+            letter-spacing: 0;
+            font-size: 21px;
+            padding: 0px 10px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        &:hover {
+            .btn__body {
+                span {
+                    &::after {
+                        content: "";
+                        opacity: 0.4;
+                    }
+                }
+            }
+        }
+    }
+    &._fw {
+        width: 100%;
+    }
 }
