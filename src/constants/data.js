@@ -47,4 +47,51 @@ const userHeaderMenuItems = [
     },
 ];
 
-export default { headerMenuItems, userHeaderMenuItems };
+const footerMenuItems = [
+    {
+        title: "Главная",
+        link: "/HomePage",
+    },
+    {
+        title: "Аукцион",
+        link: "/Auction",
+    },
+    {
+        title: "О проекте",
+        link: "/About",
+    },
+    {
+        title: "Партнерам",
+        link: "/ToPartners",
+    },
+    {
+        title: "Контакты",
+        link: "/Contacts",
+    },
+    {
+        title: "Новости",
+        link: "/News",
+    },
+    {
+        title: "FAQ",
+        link: "/FAQ",
+    },
+    {
+        title: "Реклама",
+        link: "/Promotion",
+    },
+    {
+        title: "Соглашение",
+        link: "/Lisense",
+    },
+    {
+        title: "Регистрация",
+        link: "/Registration",
+    },
+    {
+        title: "Услуги",
+        link: "/Services",
+    },
+];
+
+export default { headerMenuItems, userHeaderMenuItems, footerMenuItems };

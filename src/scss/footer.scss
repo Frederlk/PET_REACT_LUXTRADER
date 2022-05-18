@@ -1,12 +1,13 @@
 .footer {
-    padding: 50px 0px 50px 0px;
+    padding: rem(50) 0;
     background-color: #1c242a;
-    @media (max-width: 767px) {
-        padding: 30px 0px 30px 0px;
+    @media (max-width: $mobile) {
+        padding: rem(30) 0;
     }
-    &__content {
+    &__container {
         display: flex;
-        @media (max-width: 767px) {
+        @include adaptiveValue("gap", 30, 20, 970, 767.98, 1);
+        @media (max-width: $mobile) {
             display: block;
             text-align: center;
         }
@@ -19,49 +20,60 @@
             flex-wrap: wrap;
         }
         &:first-child {
-            flex: 0 0 180px;
+            flex: 0 0 rem(180);
         }
     }
 
     &__logo {
-        display: inline-block;
-        margin: 0px 0px 20px 0px;
-        @media (max-width: 767px) {
-            margin: 0px 0px 10px 0px;
+        display: inline-flex;
+        @include adaptiveValue("margin-bottom", 20, 10, 970, 767.98, 1);
+        img {
+            max-width: 100%;
         }
     }
 
     &__info {
-        color: #bb9c66;
+        color: $primary;
         white-space: nowrap;
-        &:hover {
-            border-bottom: 1px dashed #bb9c66;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: rem(-3);
+            left: 0;
+            opacity: 0;
+            border-bottom: rem(1) dashed $primary;
+            transition: all 0.3s ease 0s;
         }
-        @media (max-width: 767px) {
-            margin: 0px 0px 15px 0px;
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+        @media (max-width: $mobile) {
+            margin-bottom: rem(25);
         }
     }
 
     &__menu {
-        padding: 0px 30px;
-        @media (max-width: 992px) {
-            padding: 0px 20px;
-        }
     }
 
     &__list {
         display: flex;
         flex-wrap: wrap;
-        li {
-            margin: 8px 15px 7px 0px;
-            @media (max-width: 767px) {
-                margin: 5px 12px 7px 0px;
-            }
-        }
-        @media (max-width: 767px) {
+        column-gap: rem(20);
+        row-gap: rem(15);
+        @media (max-width: $mobile) {
             justify-content: center;
-            margin: 0px 0px 10px 0px;
+            margin-bottom: rem(20);
+            row-gap: rem(20);
         }
+    }
+
+    &__item {
     }
 
     &__link {
@@ -69,16 +81,17 @@
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: #ffffff;
+        color: $white;
+        transition: all 0.3s ease 0s;
         &:hover {
-            text-decoration: underline;
+            color: $primary;
         }
     }
 
     &__contacts {
-        margin: 4px 0px 0px 0px;
+        margin-top: rem(4);
         text-align: right;
-        @media (max-width: 767px) {
+        @media (max-width: $mobile) {
             text-align: center;
         }
     }
@@ -87,34 +100,40 @@
         white-space: nowrap;
         display: flex;
         align-items: flex-start;
-        margin: 0px 0px 5px 0px;
+        margin-bottom: rem(5);
         font-family: Bravo;
-        font-size: 50px;
+        @include adaptiveValue("font-size", 50, 40, 970, 767.98, 1);
         text-transform: uppercase;
-        color: #bb9c66;
+        color: $primary;
         small {
-            margin: 0px 5px 0px 0px;
-            font-size: 25px;
+            margin-right: rem(5);
+            @include adaptiveValue("font-size", 25, 20, 970, 767.98, 1);
         }
-        @media (max-width: 992px) {
-            font-size: 40px;
-            small {
-                font-size: 20px;
-            }
-        }
-        @media (max-width: 767px) {
+        @media (max-width: $mobile) {
             justify-content: center;
         }
     }
 
     &__callback {
-        // background: url("../img/footer/02.png") left no-repeat;
-        padding: 0px 0px 0px 12px;
-        color: #bb9c66;
+        color: $primary;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: rem(-3);
+            left: 0;
+            opacity: 0;
+            border-bottom: rem(1) dashed $primary;
+            transition: all 0.3s ease 0s;
+        }
         span {
-            @media (min-width: 992px) {
-                &:hover {
-                    border-bottom: 1px dashed;
+            margin-right: rem(5);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    opacity: 1;
                 }
             }
         }
