@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Header, Footer } from "./_containers";
+import { Header, Footer, MainSlider } from "./_containers";
 import * as flsFunctions from "./js/files/functions";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
 
@@ -13,70 +13,7 @@ const App = () => {
         <>
             <Header />
             <main className="page">
-                <div className="main-slider">
-                    <div className="main-slider__body _swiper">
-                        <div className="main-slider__item item-main-slider">
-                            <div className="item-main-slider__content">
-                                <div className="item-main-slider__container _container">
-                                    <div className="title">
-                                        <div className="title__item">Только эксклюзивные</div>
-                                        <div className="title__main title__main_w title__main_regular">
-                                            Лоты под аукцион и свобоДную продажу
-                                        </div>
-                                    </div>
-                                    <div className="item-main-slider__text">
-                                        Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный и автоматизированный
-                                        сервис по покупке и продаже, а также выставлению лотов на аукцион, предоставляем личные
-                                        кабинеты, а также оказываем сопутствубщие услуги с продажей редких и дорогих вещей
-                                    </div>
-                                    <div className="item-main-slider__btn btn">
-                                        <span className="btn__body">
-                                            <span>Присоединиться</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item-main-slider__bg _ibg">
-                                <img src="img/main/bg.jpg" alt="background" />
-                            </div>
-                        </div>
-                        <div className="main-slider__item item-main-slider">
-                            <div className="item-main-slider__content">
-                                <div className="item-main-slider__container _container">
-                                    <div className="title">
-                                        <div className="title__item">Только эксклюзивные</div>
-                                        <div className="title__main title__main_w title__main_regular">
-                                            Лоты под аукцион и свобоДную продажу
-                                        </div>
-                                    </div>
-                                    <div className="item-main-slider__text">
-                                        Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный и автоматизированный
-                                        сервис по покупке и продаже.
-                                    </div>
-                                    <div className="item-main-slider__btn btn">
-                                        <span className="btn__body">
-                                            <span>Присоединиться</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item-main-slider__bg _ibg">
-                                <img src="img/main/bg.jpg" alt="background" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="main-slider__control control-main-slider">
-                        <div className="control-main-slider__arrow control-main-slider__arrow_prev">
-                            <img src="img/main/01.png" alt="" />
-                        </div>
-                        <div className="control-main-slider__decor">
-                            <img src="img/main/02.png" alt="" />
-                        </div>
-                        <div className="control-main-slider__arrow control-main-slider__arrow_next">
-                            <img src="img/main/03.png" alt="" />
-                        </div>
-                    </div>
-                </div>
+                <MainSlider />
                 <section className="lots">
                     <div className="lots__container _container">
                         <div className="lots__header block-header">

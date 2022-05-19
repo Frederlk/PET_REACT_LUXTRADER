@@ -94,4 +94,21 @@ const footerMenuItems = [
     },
 ];
 
-export default { headerMenuItems, userHeaderMenuItems, footerMenuItems };
+const mainSliderSlides = [
+    {
+        titleLabel: "Только эксклюзивные",
+        titleMain: "Лоты под аукцион и свободную продажу",
+        text: "Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный и автоматизированный сервис по покупке и продаже.",
+        buttonText: "Присоединиться",
+        buttonLink: "/join",
+    },
+    {
+        titleLabel: "Неповторимые",
+        titleMain: "Закрытые лоты",
+        text: "Имущества предприятий, произведений искусства и других объектов, произведений редприятий, произведений искусств.",
+        buttonText: "Присоединиться",
+        buttonLink: "/join",
+    },
+];
+
+export default { headerMenuItems, userHeaderMenuItems, footerMenuItems, mainSliderSlides };

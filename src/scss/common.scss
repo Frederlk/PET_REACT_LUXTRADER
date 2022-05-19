@@ -3,29 +3,28 @@
     text-align: center;
     &__item {
         font-family: "Ceremonious";
-        font-size: 40px;
-        line-height: 25px;
-        color: #bb9c66;
-        margin: 0px 0px 25px 0px;
+        font-size: rem(40);
+        line-height: math.div(25, 40);
+        color: $primary;
+        &:not(:last-child) {
+            margin-bottom: rem(25);
+        }
     }
 
     &__main {
         font-family: "PFDin";
-        font-size: 35px;
-        line-height: 35px;
+        @include adaptiveValue("font-size", 35, 30, 970, 767.98, 1);
+        line-height: math.div(35, 35);
         text-transform: uppercase;
         letter-spacing: 0.15em;
         font-weight: 500;
-        color: #000;
+        color: $black;
+        margin-bottom: rem(20);
         &_w {
-            color: #fff;
+            color: $white;
         }
         &_regular {
             font-weight: 400;
-        }
-        @media (max-width: $tablet) {
-            font-size: 30px;
-            line-height: 30px;
         }
     }
 }
@@ -33,7 +32,9 @@
 
 .block-header {
     &__title {
-        margin: 0px 0px 20px 0px;
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
     }
 
     &__decor {
@@ -48,37 +49,37 @@
         align-items: center;
         &::before {
             content: "";
-            height: 1px;
+            height: rem(1);
             flex: 1 1 auto;
-            background-color: #bb9c66;
+            background-color: $primary;
         }
         &::after {
             content: "";
-            height: 25px * 0.72;
+            height: calc(rem(25) * 0.72);
             transform: rotate(-45deg);
-            flex: 0 0 25px * 0.72;
-            border: 1px solid #bb9c66;
-            margin: 0px 5px;
+            flex: 0 0 calc(rem(25) * 0.72);
+            border: rem(1) solid $primary;
+            margin: 0px rem(5);
         }
         span {
             display: flex;
             align-items: center;
-            margin: 0px 5px;
+            margin: 0px rem(5);
             &::before {
                 content: "";
-                height: 10px;
-                width: 10px;
-                margin: 0px 5px;
+                height: rem(10);
+                width: rem(10);
+                margin: 0px rem(5);
                 border-radius: 50%;
-                border: 1px solid #bb9c66;
+                border: rem(1) solid $primary;
             }
             &::after {
                 content: "";
-                width: 15px * 0.72;
-                height: 15px * 0.72;
-                flex: 0 0 15px * 0.72;
+                width: calc(rem(15) * 0.72);
+                width: calc(rem(15) * 0.72);
+                flex: 0 0 calc(rem(15) * 0.72);
                 transform: rotate(-45deg);
-                border: 1px solid #bb9c66;
+                border: rem(1) solid $primary;
             }
         }
         &:last-child {
@@ -91,12 +92,12 @@
 
     &__icon {
         text-align: center;
-        flex: 0 0 145px;
+        flex: 0 0 rem(145);
         img {
-            max-width: 70px;
+            max-width: rem(75);
         }
         @media (max-width: $tablet) {
-            flex: 0 0 95px;
+            flex: 0 0 rem(95);
         }
     }
 }
@@ -109,13 +110,13 @@
     &__header {
         position: relative;
         text-align: center;
-        margin: 0px 0px 30px 0px;
+        margin-bottom: rem(30);
     }
 
     &__image {
         display: block;
-        padding: 0px 0px 97.5% 0px;
-        border: 3px solid #bb9c66;
+        padding-bottom: 97.5%;
+        border: rem(3) solid $primary;
     }
 
     &__title {
@@ -124,22 +125,20 @@
         line-height: calc(25 / 21);
         font-weight: 500;
         text-transform: uppercase;
-        color: #000000;
+        color: $black;
         flex: 1 1 auto;
         position: relative;
         z-index: 2;
-        margin: 0px 0px 27px/21px * 1em 0px;
-        @media (max-width: 975px) {
-            font-size: 18px;
-        }
-        @media (min-width: 992px) {
+        margin-bottom: em(27, 21);
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
             &:hover {
-                text-decoration: underline;
+                color: $primary;
             }
         }
     }
     &__btn {
-        margin: 0px 25px;
+        margin: 0px rem(25);
     }
 }
 .timer-lot {
@@ -147,12 +146,12 @@
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 72px;
-    height: 72px;
+    width: rem(72);
+    height: rem(72);
     display: inline-flex;
     align-items: center;
     flex-direction: column;
-    padding: 2px 0px 0px 0px;
+    padding-top: rem(2);
     div {
         position: relative;
         z-index: 2;
@@ -168,14 +167,14 @@
         left: 0;
     }
     &__icon {
-        margin: 0px 0px 3px 0px;
+        margin-bottom: rem(3);
     }
 
     &__item {
         font-family: "PT Sans Narrow";
-        font-size: 18px;
-        line-height: 21px;
-        color: #000000;
+        font-size: rem(18);
+        line-height: math.div(21, 18);
+        color: $black;
     }
 }
 
@@ -184,68 +183,65 @@
 .info-lot {
     display: flex;
     justify-content: center;
-    margin: 0px 0px 35px 0px;
+    margin-bottom: rem(35);
     &__stat {
-        flex: 0 0 50px;
+        flex: 0 0 rem(50);
         display: flex;
         flex-direction: column;
         text-align: center;
     }
 
     &__icon {
-        width: 25px * 0.72;
-        height: 25px * 0.72;
+        width: calc(rem(25) * 0.72);
+        height: calc(rem(25) * 0.72);
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        margin: 0px auto 10px auto;
+        margin: 0px auto rem(10) auto;
     }
 
     &__value {
-        color: #000000;
-        border-bottom: 1px solid #bb9c66;
-        padding: 0px 0px 5px 0px;
+        color: $black;
+        border-bottom: rem(1) solid $primary;
+        padding-bottom: rem(5);
     }
 
     &__current-bet {
         flex: 1 1 auto;
-        @media (max-width: 975px) {
+        @media (max-width: $tablet) {
             flex: 0 0 auto;
         }
     }
 }
 .current-bet-info-lot {
-    padding: 0px 5px;
+    padding: 0px rem(5);
     position: relative;
-    @media (max-width: 975px) {
-        padding: 0px 15px;
+    @media (max-width: $tablet) {
+        padding: 0px rem(15);
     }
     &::after {
         content: "";
         position: absolute;
-        width: 72px;
-        height: 72px;
+        width: rem(72);
+        height: rem(72);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(45deg);
-        border: 1px solid #bb9c66;
+        border: rem(1) solid $primary;
     }
     div {
         position: relative;
         z-index: 2;
     }
     &__label {
-        margin: 0px 0px 5px 0px;
+        margin-bottom: rem(5);
     }
 
     &__value {
-        color: #000000;
+        color: $black;
         font-family: Bravo;
-        font-size: 50px;
         white-space: nowrap;
-        @media (max-width: $pc) {
-            font-size: 40px;
-        }
+        @include adaptiveValue("font-size", 50, 40, 991.98, 970, 1);
     }
 }
 
@@ -253,22 +249,21 @@
 
 .item {
     position: relative;
-    padding: 25px 20px 40px 20px;
-    height: 250px;
-    width: 250px;
+    padding: rem(25) rem(20) rem(40) rem(20);
+    height: rem(250);
+    width: rem(250);
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
-    @media (min-width: 922px) {
+    @media (any-hover: hover) {
         &:hover {
             .item__bg {
                 transform: scale(1.1);
             }
         }
     }
-
     &__link {
         position: absolute;
         width: 100%;
@@ -283,15 +278,15 @@
     &__icon {
         position: relative;
         z-index: 2;
-        margin: 0px 0px 22px 0px;
+        margin-bottom: rem(22);
     }
 
     &__title {
         position: relative;
         z-index: 2;
         font-family: PFDin;
-        font-size: 21px;
-        line-height: 25px;
+        font-size: rem(21);
+        line-height: math.div(25, 21);
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -323,67 +318,59 @@
     text-align: center;
     height: 100%;
     &__icon {
-        height: 205px;
+        height: rem(205);
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0px 0px 45px 0px;
-        @media (max-width: 630px) {
-            margin: 0px 0px 10px 0px;
-        }
+        @include adaptiveValue("margin-bottom", 45, 15, 970, 767.98, 1);
     }
 
     &__title {
         flex: 1 1 auto;
         font-family: PFDin;
-        font-size: 21px;
-        line-height: calc(25 / 21);
+        font-size: rem(21);
+        line-height: math.div(25, 21);
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: #ffffff;
-        margin: 0px 0px 25px 0px;
-        @media (min-width: 992px) {
+        color: $white;
+        @include adaptiveValue("margin-bottom", 25, 10, 970, 767.98, 1);
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
             &:hover {
-                text-decoration: underline;
+                color: $primary;
             }
-        }
-        @media (max-width: 630px) {
-            margin: 0px 0px 10px 0px;
         }
     }
 
     &__text {
-        font-size: 15px;
-        line-height: calc(25 / 15);
-        color: #bb9c66;
-        margin: 0px 0px 30px 0px;
-        max-height: 50px;
+        font-size: rem(15);
+        line-height: math.div(25, 15);
+        color: $primary;
+        @include adaptiveValue("margin-bottom", 30, 15, 970, 767.98, 1);
+        max-height: rem(40);
         overflow: hidden;
-
-        @media (max-width: 630px) {
-            margin: 0px 0px 15px 0px;
-        }
     }
 
     &__btn {
         font-family: PFDin;
-        font-size: 21px;
-        line-height: calc(25 / 21);
+        font-size: rem(21);
+        line-height: math.div(25, 21);
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: #ffffff;
+        color: $white;
         position: relative;
+        transition: all 0.3s ease 0s;
         span {
             background-color: #1c242a;
             position: relative;
             z-index: 3;
-            padding: 0px 18px;
+            padding: 0px rem(18);
         }
-        @media (min-width: 992px) {
+        @media (any-hover: hover) {
             &:hover {
-                text-decoration: underline;
+                color: $primary;
             }
         }
         &::after {
@@ -391,8 +378,8 @@
             flex: 1 1 auto;
             top: 50%;
             left: 0;
-            height: 1px;
-            background-color: #bb9c66;
+            height: rem(1);
+            background-color: $primary;
             width: 100%;
             position: absolute;
             z-index: 2;

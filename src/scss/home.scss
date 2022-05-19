@@ -1,14 +1,11 @@
 .page {
-    padding: 75px 0px 0px 0px;
+    padding-top: rem(75);
     flex: 1 1 auto;
 }
 //===================================================================================================================================
 .main-slider {
     position: relative;
-    .swiper-wrapper {
-        align-items: stretch;
-    }
-    &__body {
+    &__swiper {
     }
 
     &__item {
@@ -16,8 +13,8 @@
 
     &__control {
         position: absolute;
-        width: 70.7px;
-        height: 70.7px;
+        width: rem(70);
+        height: rem(70);
         bottom: 0;
         left: 50%;
         transform: translate(-50%, 50%);
@@ -26,7 +23,7 @@
         align-items: center;
         &::after {
             content: "";
-            background-color: #fff;
+            background-color: $white;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -35,46 +32,42 @@
             transform: rotate(-45deg);
         }
     }
-}
-.item-main-slider {
-    text-align: center;
-    position: relative;
-    padding: 30px 0px 100px 0px;
-    &__content {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-    }
 
-    &__container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    &__text {
-        font-size: 15px;
-        line-height: 25px;
-        color: #ffffff;
-        max-width: 700px;
-        margin: 20px auto 0 auto;
-        flex: 1 1 auto;
-    }
-
-    &__btn {
-        margin: 55px 0px 0px 0px;
-        @media (max-width: $mobile) {
-            margin: 30px 0px 0px 0px;
-        }
-    }
-
-    &__bg {
+    &__bg-ibg {
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
+        z-index: -1;
+    }
+}
+
+.item-main-slider {
+    position: relative;
+    padding: rem(50) 0px rem(100) 0px;
+    text-align: center;
+    &__container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__title {
+    }
+    &__text {
+        font-size: rem(15);
+        line-height: math.div(25, 15);
+        color: $white;
+        max-width: rem(700);
+        margin: 0 auto;
+        flex: 1 1 auto;
+        margin-bottom: rem(20);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 55, 30, 970, 479.98, 1);
+        }
+    }
+
+    &__btn {
     }
 }
 
@@ -87,39 +80,30 @@
         }
 
         &_next {
+            transform: rotate(-180deg);
         }
     }
 
     &__decor {
         position: relative;
         z-index: 2;
-        margin: 0px 12px;
-        animation: rotate 5s infinite linear;
-    }
-}
-@keyframes rotate {
-    0% {
-    }
-    100% {
-        transform: rotate(360deg);
+        margin: 0px rem(12);
+        &._slideChanging {
+            transition: all 1s ease 0s;
+            transform: rotate(360deg);
+        }
     }
 }
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 .lots {
-    padding: 85px 0px 65px 0px;
-    @media (max-width: $mobile) {
-        padding: 65px 0px 55px 0px;
-    }
-    @media (max-width: $mobileSmall) {
-        padding: 50px 0px 40px 0px;
-    }
-
+    @include adaptiveValue("padding-top", 85, 50, 970, 479.98, 1);
+    @include adaptiveValue("padding-bottom", 65, 40, 970, 479.98, 1);
     &__container {
     }
 
     &__header {
-        margin: 0px 0px 40px 0px;
+        margin-bottom: rem(40);
     }
 
     &__slider {
@@ -224,7 +208,7 @@
             position: absolute;
             top: 0px;
             height: 37px;
-            background-color: #fff;
+            background-color: $white;
             width: 100%;
             z-index: 2;
         }
@@ -666,7 +650,7 @@
     &__btn {
         position: relative;
         flex: 0 0 95px;
-        background-color: #fff;
+        background-color: $white;
         &::before {
             content: "";
             position: absolute;

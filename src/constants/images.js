@@ -87,12 +87,12 @@ const lotsAllImages = {
 };
 
 import arrowMain from "./../assets/img/main/arrow.png";
-import arrowCircle from "./../assets/img/main/circle.png";
-import arrowBg from "./../assets/img/main/bg.jpg";
+import circleMain from "./../assets/img/main/circle.png";
+import bgMain from "./../assets/img/main/bg.jpg";
 const mainImages = {
     arrowMain,
-    arrowCircle,
-    arrowBg,
+    circleMain,
+    bgMain,
 };
 
 import news01 from "./../assets/img/news/01.png";
