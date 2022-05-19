@@ -111,4 +111,34 @@ const mainSliderSlides = [
     },
 ];
 
-export default { headerMenuItems, userHeaderMenuItems, footerMenuItems, mainSliderSlides };
+const lotsItems = [
+    {
+        image: lotsImages.lot01,
+        time: "2023, 1, 1",
+        title: "Arnold & Son Worldtimer discovery of antarctica",
+        betPrice: "1000000",
+        betCurrentPrice: "18999203",
+        views: "1098",
+        bets: "16",
+    },
+    {
+        image: lotsImages.lot02,
+        time: "2022, 12, 21",
+        title: "Chateau Lafite 1949",
+        betPrice: "100000",
+        betCurrentPrice: "245050",
+        views: "756",
+        bets: "3",
+    },
+    {
+        image: lotsImages.lot03,
+        time: "2022, 11, 30",
+        title: "Rolex Paul Newman Daytona",
+        betPrice: "250000",
+        betCurrentPrice: "3245000",
+        views: "11",
+        bets: "3",
+    },
+];
+
+export default { headerMenuItems, userHeaderMenuItems, footerMenuItems, mainSliderSlides, lotsItems };

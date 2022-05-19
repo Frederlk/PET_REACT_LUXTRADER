@@ -1,8 +1,3 @@
-.page {
-    padding-top: rem(75);
-    flex: 1 1 auto;
-}
-//===================================================================================================================================
 .main-slider {
     position: relative;
     &__swiper {
@@ -95,7 +90,8 @@
     }
 }
 
-//</ОСНОВНОЙ БЛОК>====================================================================================================
+//========================================================================================================================================================
+
 .lots {
     @include adaptiveValue("padding-top", 85, 50, 970, 479.98, 1);
     @include adaptiveValue("padding-bottom", 65, 40, 970, 479.98, 1);
@@ -108,88 +104,249 @@
 
     &__slider {
     }
-}
 
-.slider-lots {
-    &__body {
-        margin: 0px -50px 50px -50px;
-        .swiper-wrapper {
-            align-items: stretch;
+    &__swiper {
+        margin: 0px rem(-50);
+        @media (max-width: $tablet) {
+            margin: 0px rem(-10);
         }
-        @media (max-width: 975px) {
-            margin: 0px -15px 30px -15px;
-        }
+        @include adaptiveValue("margin-bottom", 50, 30, 970, 767.98, 1);
     }
 
-    &__slide {
-        padding: 0px 50px;
-
-        @media (max-width: 975px) {
-            padding: 0px 15px;
+    &__lot {
+        padding: 0px rem(50);
+        @media (max-width: $tablet) {
+            padding: 0px rem(10);
         }
     }
 
     &__control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: $mobile) {
+            justify-content: space-between;
+        }
     }
-}
-.control-slider-lots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     &__arrow {
         display: flex;
         align-items: center;
-        cursor: pointer;
+        flex: 0 0 rem(135);
+        img {
+            max-width: 100%;
+        }
+        @media (max-width: $mobile) {
+            flex: 0 0 rem(90);
+        }
+
         span {
-            flex: 0 0 108px;
-            width: 108px;
-            height: 35px;
-            // background: url("../img/lots/icons/05prev.png") 0 0 no-repeat;
-            @media (max-width: 450px) {
-                flex: 0 0 65px;
-                width: 65px;
+            @media (max-width: $mobile) {
+                display: none;
             }
-        }
-        &::after {
-            content: "";
-            width: 15px;
-            height: 15px;
-            margin: 0px 5px;
+            flex: 0 0 rem(15);
+            height: rem(15);
+            margin: 0px rem(5);
             border-radius: 50%;
-            border: 1px solid #bb9c66;
+            border: rem(1) solid $primary;
         }
-        &:last-child {
+        &_prev {
+        }
+
+        &_next {
             flex-direction: row-reverse;
-            span {
-                transform: rotate(-180deg);
-            }
+            transform: rotate(-180deg);
         }
     }
 
     &__link {
-        // background: url("../img/lots/icons/07.png") 0 0 no-repeat;
-        flex: 0 0 100px;
-        height: 100px;
+        position: relative;
+        flex: 0 0 rem(100);
+        height: rem(100);
         display: flex;
-        margin: 0px 20px;
+        @include adaptiveValue("margin-right", 20, 5, 970, 479.98, 1);
+        @include adaptiveValue("margin-left", 20, 5, 970, 479.98, 1);
         justify-content: center;
         align-items: center;
         font-family: PFDin;
-        font-size: 21px;
-        line-height: 25px;
+        @include adaptiveValue("font-size", 21, 18, 970, 767.98, 1);
+        line-height: math.div(25, 21);
         font-weight: 500;
         text-transform: uppercase;
-        color: #000000;
+        color: $black;
+        transition: all 0.3s ease 0s;
         @media (max-width: $mobile) {
-            margin: 0px 10px;
-            font-size: 16px;
+            flex: 0 0 rem(90);
+            height: rem(90);
         }
-        @media (min-width: 992px) {
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        @media (any-hover: hover) {
             &:hover {
-                text-decoration: underline;
+                color: $primary;
             }
         }
+    }
+}
+
+.lot {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    &__header {
+        position: relative;
+        text-align: center;
+        margin-bottom: rem(30);
+    }
+
+    &__image-ibg {
+        display: block;
+        padding-bottom: 97.5%;
+        border: rem(3) solid $primary;
+    }
+
+    &__timer {
+    }
+
+    &__title {
+        font-family: PFDin;
+        font-size: rem(21);
+        line-height: math.div(25, 21);
+        font-weight: 500;
+        text-transform: uppercase;
+        color: $black;
+        flex: 1 1 auto;
+        position: relative;
+        z-index: 2;
+        margin-bottom: em(27, 21);
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    &__info {
+    }
+
+    &__btn {
+        margin: 0px rem(25);
+    }
+}
+
+.timer-lot {
+    transform: translate(-50%, 50%);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: rem(72);
+    height: rem(72);
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: rem(2);
+    div {
+        position: relative;
+        z-index: 2;
+    }
+    &::before {
+        content: "";
+        background-color: #fff;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: rotate(45deg);
+        top: 0;
+        left: 0;
+    }
+    &__icon {
+        margin-bottom: rem(3);
+    }
+
+    &__item {
+        font-family: "PT Sans Narrow";
+        font-size: rem(18);
+        line-height: math.div(21, 18);
+        color: $black;
+        span {
+            &:not(:last-child) {
+                &::after {
+                    content: ":";
+                }
+            }
+        }
+    }
+}
+
+.info-lot {
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(35);
+    &__stat {
+        flex: 0 0 rem(50);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__icon {
+        width: calc(rem(25) * 0.72);
+        height: calc(rem(25) * 0.72);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto rem(10) auto;
+    }
+
+    &__value {
+        color: $black;
+        border-bottom: rem(1) solid $primary;
+        padding-bottom: rem(5);
+    }
+
+    &__current-bet {
+        flex: 1 1 auto;
+        @media (max-width: $tablet) {
+            flex: 0 0 auto;
+        }
+    }
+}
+
+.current-bet-info-lot {
+    padding: 0px rem(5);
+    position: relative;
+    @media (max-width: $tablet) {
+        padding: 0px rem(15);
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: rem(72);
+        height: rem(72);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: rem(1) solid $primary;
+    }
+    div {
+        position: relative;
+        z-index: 2;
+    }
+    &__label {
+        margin-bottom: rem(5);
+    }
+
+    &__value {
+        color: $black;
+        font-family: Bravo;
+        white-space: nowrap;
+        @include adaptiveValue("font-size", 50, 40, 991.98, 970, 1);
     }
 }
 
@@ -237,7 +394,7 @@
             flex: 0 0 24px * 0.72;
             margin: 0px 0px 0px 1px;
             transform: translate(-50%, 0) rotate(135deg);
-            border: 1px solid #bb9c66;
+            border: 1px solid $primary;
             margin: 15px 0px 0px 0px;
             z-index: 3;
         }
@@ -267,7 +424,7 @@
         &::before {
             content: "";
             position: absolute;
-            background-color: #bb9c66;
+            background-color: $primary;
             width: 10px;
             height: 10px;
             flex: 0 0 10px;
@@ -298,7 +455,7 @@
             content: "";
             width: 1px;
             flex: 1 1 auto;
-            background-color: #bb9c66;
+            background-color: $primary;
         }
         &::after {
             content: "";
@@ -306,7 +463,7 @@
             height: 24px * 0.72;
             flex: 0 0 24px * 0.72;
             transform: rotate(-45deg);
-            border: 1px solid #bb9c66;
+            border: 1px solid $primary;
             margin: 15px 0px 0px 0px;
         }
 
@@ -317,7 +474,7 @@
             flex-direction: column;
             &::before {
                 content: "";
-                background-color: #bb9c66;
+                background-color: $primary;
                 width: 10px;
                 height: 10px;
                 flex: 0 0 10px;
@@ -328,7 +485,7 @@
                 content: "";
                 width: 1px;
                 flex: 1 1 auto;
-                background-color: #bb9c66;
+                background-color: $primary;
             }
         }
     }
@@ -449,7 +606,7 @@
         font-size: 25px;
         line-height: calc(30 / 25);
         font-style: italic;
-        color: #000000;
+        color: $black;
         margin: 0px 0px 30px/25px * 1em 0px;
     }
 
@@ -481,14 +638,14 @@
             content: "";
             flex: 1 1 auto;
             height: 1px;
-            background-color: #bb9c66;
+            background-color: $primary;
         }
         &::after {
             content: "";
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            border: 1px solid #bb9c66;
+            border: 1px solid $primary;
             margin: 0px 0px 0px 5px;
         }
         &:last-child {
@@ -560,7 +717,7 @@
 
     &__date {
         font-size: 12px;
-        color: #bb9c66;
+        color: $primary;
         margin: 0px 0px 5px 0px;
     }
 
@@ -594,7 +751,7 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #000000;
+    color: $black;
     margin: 0px 0px 30px 0px;
     @media (max-width: 767px) {
         margin: 0px 0px 15px 0px;
@@ -641,7 +798,7 @@
 }
 .form-subscribe {
     height: 50px;
-    border: 3px solid #bb9c66;
+    border: 3px solid $primary;
     display: flex;
     &__input {
         flex: 1 1 auto;
@@ -659,7 +816,7 @@
             left: 0;
             width: 1px;
             height: 32px;
-            background-color: #bb9c66;
+            background-color: $primary;
         }
         span {
             // background: url("../img/news/04.png") right no-repeat;
