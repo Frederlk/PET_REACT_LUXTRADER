@@ -7,6 +7,7 @@ import Services from "./_containers/Services";
 const App = () => {
     useEffect(() => {
         flsFunctions.menuInit();
+        flsFunctions.isWebp();
         dynamicAdaptive();
     }, []);
 

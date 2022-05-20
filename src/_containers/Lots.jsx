@@ -105,18 +105,18 @@ const Lots = () => {
                         {slides}
                     </Swiper>
                     <div className="lots__control">
-                        <div className="lots__arrow lots__arrow_prev">
+                        <button type="button" className="lots__arrow lots__arrow_prev">
                             <img src={images.lotsImages.lotIconArrow} alt="Стрелка Назад" />
                             <span></span>
-                        </div>
+                        </button>
                         <a href="#" className="lots__link">
                             Все лоты
                             <img src={images.lotsImages.lotIconCircle} alt="Круг" />
                         </a>
-                        <div className="lots__arrow lots__arrow_next">
+                        <button type="button" className="lots__arrow lots__arrow_next">
                             <span></span>
                             <img src={images.lotsImages.lotIconArrow} alt="Стрелка Вперед" />
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
