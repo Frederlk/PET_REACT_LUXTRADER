@@ -98,3 +98,26 @@
         }
     }
 }
+
+//========================================================================================================================================================
+
+.title-info {
+    display: flex;
+    align-items: center;
+    font-family: PFDin;
+    font-size: rem(35);
+    line-height: math.div(35, 25);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $black;
+    @include adaptiveValue("margin-bottom", 30, 15, 970, 767.98, 1);
+    span {
+        &:first-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: rem(18);
+        }
+    }
+}

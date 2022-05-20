@@ -219,6 +219,40 @@ const servicesItems = [
     },
 ];
 
+const newsItems = [
+    {
+        date: new Date(2018, 11, 6),
+        title: "Уникальной Лакшери аукционе, здесь вы сможете найти",
+        text: "Продажа товаров, ценных бумаг, имущества предприятий, произведений искусства и других объектов",
+        link: "A-unique-lakesher-auction",
+    },
+    {
+        date: new Date(2019, 11, 22),
+        title: "Достойные для себя лоты",
+        text: "Имущества предприятий, произведений искусства и других объектов, произведений редприятий, произведений искусств.",
+        link: "A-unique-lakesher-auction",
+    },
+    {
+        date: new Date(2019, 6, 12),
+        title: "Уникальной Лакшери аукционе, здесь вы сможете найти",
+        text: "Продажа товаров, ценных бумаг, имущества предприятий, произведений искусства и других объектов",
+        link: "A-unique-lakesher-auction",
+    },
+];
+
+const eventItems = [
+    {
+        title: "Уникальной Лакшери аукционе, здесь вы сможете найти",
+        text: "Продажа товаров, ценных бумаг, имущества предприятий, произведений искусства и других объектов",
+        link: "A-unique-lakesher-auction",
+    },
+    {
+        title: "Достойные для себя лоты",
+        text: "Имущества предприятий, произведений искусства и других объектов, произведений редприятий, произведений искусств.",
+        link: "A-unique-lakesher-auction",
+    },
+];
+
 export default {
     headerMenuItems,
     userHeaderMenuItems,
@@ -227,4 +261,6 @@ export default {
     lotsItems,
     categoriesItems,
     servicesItems,
+    newsItems,
+    eventItems,
 };

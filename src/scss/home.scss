@@ -759,36 +759,60 @@
 //========================================================================================================================================================
 
 .info {
-    padding: 0px 0px 75px 0px;
-    @media (max-width: 570px) {
-        padding: 0px 0px 60px 0px;
-    }
+    @include adaptiveValue("padding-bottom", 75, 60, 970, 620, 1);
     &__container {
-    }
-
-    &__row {
-        display: flex;
-        margin: 0px -22px;
-        flex-wrap: wrap;
-        @media (max-width: 767px) {
-            display: block;
+        @media (min-width: $mobile) {
+            display: flex;
+            flex-wrap: wrap;
+            @include adaptiveValue("gap", 40, 30, 970, 767.98, 1);
         }
     }
 
     &__column {
-        flex: 0 1 50%;
-        padding: 0px 22px;
-        margin: 0px 0px 40px 0px;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
-            flex: 1 1 auto;
+        &:not(:last-child) {
+            flex: 0 1 calc(50% - rem(20));
+            @media (max-width: $mobile) {
+                @include adaptiveValue("margin-bottom", 50, 30, 970, 767.98, 1);
+            }
         }
-        @media (max-width: 767px) {
-            margin: 0px 0px 20px 0px;
+        &:last-child {
+            flex: 1 1 100%;
         }
     }
 
-    &__block {
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__date {
+        font-size: rem(12);
+        color: $primary;
+        &:not(:last-child) {
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__label {
+        display: inline-flex;
+        font-size: rem(15);
+        line-height: math.div(25, 15);
+        font-weight: 700;
+        text-decoration: underline;
+        color: #333333;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    &__text {
+        font-size: rem(15);
+        line-height: math.div(25, 15);
+        color: #333333;
     }
 
     &__title {
@@ -797,108 +821,61 @@
     &__content {
     }
 
-    &__item {
-        margin: 0px 0px 30px 0px;
-        &:last-child {
-            margin: 0px 0px 0px 0px;
-        }
-        @media (max-width: 767px) {
-            margin: 0px 0px 15px 0px;
-        }
-    }
-
-    &__date {
-        font-size: 12px;
-        color: $primary;
-        margin: 0px 0px 5px 0px;
-    }
-
-    &__label {
-        display: inline-block;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: calc(25 / 15);
-        text-decoration: underline;
-        color: #333333;
-    }
-
-    &__text {
-        font-size: 15px;
-        line-height: calc(25 / 15);
-        color: #333333;
-    }
-
-    &__title {
-    }
-
     &__subscribe {
     }
 }
-.title-info {
-    display: flex;
-    align-items: center;
-    font-family: PFDin;
-    font-size: 35px;
-    line-height: calc(35 / 25);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: $black;
-    margin: 0px 0px 30px 0px;
-    @media (max-width: 767px) {
-        margin: 0px 0px 15px 0px;
-    }
-    span {
-        &:first-child {
-            margin: 0px 18px 0px 0px;
-            picture {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-    }
-}
+
 .subscribe {
     &__title {
     }
 
     &__body {
-        display: flex;
-        margin: 0px -22px;
-        @media (max-width: 767px) {
-            display: block;
+        @media (min-width: $mobile) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            @include adaptiveValue("gap", 40, 30, 970, 767.98, 1);
         }
     }
 
     &__column {
-        flex: 0 1 50%;
-        padding: 0px 22px;
     }
 
     &__text {
-        font-size: 15px;
-        line-height: calc(25 / 15);
+        font-size: rem(15);
+        line-height: math.div(25, 15);
         color: #333333;
-        @media (max-width: 767px) {
-            margin: 0px 0px 10px 0px;
+        @media (max-width: $mobile) {
+            margin-bottom: rem(10);
         }
     }
 
     &__form {
     }
 }
+
 .form-subscribe {
-    height: 50px;
-    border: 3px solid $primary;
+    height: rem(50);
+    border: rem(3) solid $primary;
     display: flex;
+    position: relative;
     &__input {
         flex: 1 1 auto;
     }
 
+    &__error {
+        ._error & {
+            position: absolute;
+            bottom: rem(-25);
+            left: 0;
+            font-size: rem(14);
+            line-height: math.div(20, 14);
+            color: red;
+        }
+    }
+
     &__btn {
         position: relative;
-        flex: 0 0 95px;
+        flex: 0 0 rem(95);
         background-color: $white;
         &::before {
             content: "";
@@ -906,16 +883,16 @@
             top: 50%;
             transform: translate(0px, -50%);
             left: 0;
-            width: 1px;
-            height: 32px;
+            width: rem(1);
+            height: rem(32);
             background-color: $primary;
         }
         span {
-            // background: url("../img/news/04.png") right no-repeat;
-            padding: 0px 30px 0px 0px;
+            background: url("../assets/img/news/04.png") right no-repeat;
+            padding-right: rem(30);
             font-family: PFDin;
-            font-size: 21px;
-            line-height: calc(25 / 21);
+            font-size: rem(21);
+            line-height: math.div(25, 21);
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.1em;
