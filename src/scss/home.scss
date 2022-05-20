@@ -590,36 +590,107 @@
 //========================================================================================================================================================
 
 .services {
-    padding: 60px 0px 50px 0px;
+    @include adaptiveValue("padding-top", 60, 30, 970, 767.98, 1);
+    @include adaptiveValue("padding-bottom", 80, 50, 970, 767.98, 1);
     background-color: #1c242a;
-    @media (max-width: 630px) {
-        padding: 30px 0px 20px 0px;
+    &__container {
     }
-
     &__header {
-        margin: 0px 0px 40px 0px;
-        @media (max-width: 630px) {
-            margin: 0px 0px 15px 0px;
-        }
+        margin-bottom: rem(40);
     }
 
     &__row {
-        flex-wrap: wrap;
-        margin: 0px -45px;
+        @media (min-width: $mobile) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            @include adaptiveValue("gap", 100, 30, 970, 767.98, 1);
+        }
+    }
+    &__item {
+        @media (max-width: $mobile) {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 50, 30, 767.98, 479.98, 1);
+            }
+        }
+    }
+}
+
+.services-item {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    height: 100%;
+    @media (max-width: $mobile) {
+        max-width: rem(500);
+        margin: 0px auto;
+    }
+    &__icon {
+        height: rem(205);
         display: flex;
         justify-content: center;
+        align-items: center;
+        @include adaptiveValue("margin-bottom", 45, 10, 970, 767.98, 1);
+        img {
+            max-width: 100%;
+        }
     }
 
-    &__column {
-        padding: 0px 45px;
-        flex: 0 1 33.333%;
-        margin: 0px 0px 50px 0px;
-        @media (max-width: 980px) {
-            flex: 0 1 50%;
+    &__title {
+        flex: 1 1 auto;
+        font-family: PFDin;
+        font-size: rem(21);
+        line-height: math.div(25, 21);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $white;
+        @include adaptiveValue("margin-bottom", 25, 10, 970, 767.98, 1);
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
         }
-        @media (max-width: 630px) {
+    }
+
+    &__text {
+        font-size: rem(15);
+        line-height: math.div(25, 15);
+        color: $primary;
+        @include adaptiveValue("margin-bottom", 30, 15, 970, 767.98, 1);
+    }
+
+    &__btn {
+        font-family: PFDin;
+        font-size: rem(21);
+        line-height: math.div(25, 21);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $white;
+        position: relative;
+        transition: all 0.3s ease 0s;
+        span {
+            background-color: #1c242a;
+            position: relative;
+            z-index: 3;
+            padding: 0px rem(18);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+        &::after {
+            content: "";
             flex: 1 1 auto;
-            margin: 0px 0px 30px 0px;
+            top: 50%;
+            left: 0;
+            height: rem(1);
+            background-color: $primary;
+            width: 100%;
+            position: absolute;
+            z-index: 2;
         }
     }
 }

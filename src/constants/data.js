@@ -198,4 +198,33 @@ const categoriesItems = [
     },
 ];
 
-export default { headerMenuItems, userHeaderMenuItems, footerMenuItems, mainSliderSlides, lotsItems, categoriesItems };
+const servicesItems = [
+    {
+        icon: servicesImages.services01,
+        title: "Экспертная оценка",
+        text: "Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный",
+        link: "/Expert-review",
+    },
+    {
+        icon: servicesImages.services02,
+        title: "заказ комплектующих",
+        text: "Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный",
+        link: "/Order-of-components",
+    },
+    {
+        icon: servicesImages.services03,
+        title: "ремонт и реставрациЯ",
+        text: "Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный сайт.",
+        link: "/Repair-and-restoration",
+    },
+];
+
+export default {
+    headerMenuItems,
+    userHeaderMenuItems,
+    footerMenuItems,
+    mainSliderSlides,
+    lotsItems,
+    categoriesItems,
+    servicesItems,
+};

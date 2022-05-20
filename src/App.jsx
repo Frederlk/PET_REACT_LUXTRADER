@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Header, Footer, MainSlider, Lots, Categories } from "./_containers";
 import * as flsFunctions from "./js/files/functions";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
+import Services from "./_containers/Services";
 
 const App = () => {
     useEffect(() => {
@@ -16,77 +17,7 @@ const App = () => {
                 <MainSlider />
                 <Lots />
                 <Categories />
-                <section className="services">
-                    <div className="services__container _container">
-                        <div className="services__header block-header">
-                            <div className="block-header__title title">
-                                <div className="title__item">Дополнительные</div>
-                                <h2 className="title__main title__main_w">услуги</h2>
-                            </div>
-                            <div className="block-header__decor block-decor">
-                                <div className="block-decor__items">
-                                    <span></span>
-                                </div>
-                                <div className="block-decor__icon">
-                                    <img src="img/services/01.png" alt="" />
-                                </div>
-                                <div className="block-decor__items">
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="services__row">
-                            <div className="services__column">
-                                <div className="services__item service">
-                                    <a href="#" className="service__icon">
-                                        <img src="img/services/02.png" alt="" />
-                                    </a>
-                                    <a href="#" className="service__title">
-                                        Экспертная оценка
-                                    </a>
-                                    <div className="service__text">
-                                        Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный
-                                    </div>
-                                    <a href="#" className="service__btn">
-                                        <span>Подробнее</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="services__column">
-                                <div className="services__item service">
-                                    <a href="#" className="service__icon">
-                                        <img src="img/services/03.png" alt="" />
-                                    </a>
-                                    <a href="#" className="service__title">
-                                        заказ комплектующих
-                                    </a>
-                                    <div className="service__text">
-                                        Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный
-                                    </div>
-                                    <a href="#" className="service__btn">
-                                        <span>Подробнее</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="services__column">
-                                <div className="services__item service">
-                                    <a href="#" className="service__icon">
-                                        <img src="img/services/04.png" alt="" />
-                                    </a>
-                                    <a href="#" className="service__title">
-                                        ремонт и реставрациЯ
-                                    </a>
-                                    <div className="service__text">
-                                        Мы собираем эксклюзивную публику и экслюзивные лоты, даем удобный
-                                    </div>
-                                    <a href="#" className="service__btn">
-                                        <span>Подробнее</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <Services />
                 <section className="quotes">
                     <div className="quotes__container _container">
                         <div className="quotes__header block-header">

@@ -3,7 +3,7 @@ import { data, images } from "../constants";
 
 const Categories = () => {
     const categoriesItems = data.categoriesItems.map(({ icon, title, link, image }, i) => (
-        <div key={i} className="categories__column">
+        <article key={i + title + link} className="categories__column">
             <a href={link} className="categories__item item">
                 <div className="item__icon">
                     <img src={icon} alt={title} />
@@ -19,11 +19,11 @@ const Categories = () => {
             <div className="categories__decor">
                 <span></span>
             </div>
-        </div>
+        </article>
     ));
 
     return (
-        <div className="categories">
+        <section className="categories">
             <div className="categories__container">
                 <div className="categories__row">{categoriesItems.length && categoriesItems}</div>
                 <div className="categories__text">
@@ -47,7 +47,7 @@ const Categories = () => {
                     </p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
