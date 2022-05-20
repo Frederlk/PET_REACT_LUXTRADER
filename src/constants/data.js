@@ -141,4 +141,61 @@ const lotsItems = [
     },
 ];
 
-export default { headerMenuItems, userHeaderMenuItems, footerMenuItems, mainSliderSlides, lotsItems };
+const categoriesItems = [
+    {
+        icon: lotsAllImages.lotsIcon01,
+        title: "Часы",
+        image: lotsAllImages.lots01,
+        link: "/watches",
+    },
+    {
+        icon: lotsAllImages.lotsIcon02,
+        title: "Ювелирные изделия",
+        image: lotsAllImages.lots02,
+        link: "/Jewelry",
+    },
+    {
+        icon: lotsAllImages.lotsIcon03,
+        title: "Автотранспорт и лодки",
+        image: lotsAllImages.lots03,
+        link: "/Authotransport",
+    },
+    {
+        icon: lotsAllImages.lotsIcon04,
+        title: "Аксессуары",
+        image: lotsAllImages.lots04,
+        link: "/Accessories",
+    },
+    {
+        icon: lotsAllImages.lotsIcon05,
+        title: "Недвижимость",
+        image: lotsAllImages.lots05,
+        link: "/The property",
+    },
+    {
+        icon: lotsAllImages.lotsIcon06,
+        title: "Hi-tech",
+        image: lotsAllImages.lots06,
+        link: "/Hi-tech",
+    },
+    {
+        icon: lotsAllImages.lotsIcon07,
+        title: "одежда и обувь",
+        image: lotsAllImages.lots07,
+        link: "/Clothing-shoes",
+    },
+    {
+        icon: lotsAllImages.lotsIcon08,
+        title: "предметы искусства",
+        image: lotsAllImages.lots08,
+        link: "/Arts",
+    },
+    {
+        icon: lotsAllImages.lotsIcon09,
+        title: "алкоголь и еда",
+        image: lotsAllImages.lots09,
+        link: "/Alcohol-and-food",
+    },
+];
+
+export default { headerMenuItems, userHeaderMenuItems, footerMenuItems, mainSliderSlides, lotsItems, categoriesItems };

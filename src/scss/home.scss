@@ -257,7 +257,7 @@
     }
     &::before {
         content: "";
-        background-color: #fff;
+        background-color: $white;
         width: 100%;
         height: 100%;
         position: absolute;
@@ -271,8 +271,8 @@
 
     &__item {
         font-family: "PT Sans Narrow";
-        font-size: rem(18);
-        line-height: math.div(21, 18);
+        font-size: rem(16);
+        line-height: math.div(21, 16);
         color: $black;
         span {
             &:not(:last-child) {
@@ -353,10 +353,7 @@
 //========================================================================================================================================================
 
 .categories {
-    margin: 0px 0px 80px 0px;
-    @media (max-width: 767px) {
-        margin: 0px 0px 40px 0px;
-    }
+    @include adaptiveValue("margin-bottom", 80, 40, 970, 767.98, 1);
     &__container {
         overflow: hidden;
         position: relative;
@@ -364,7 +361,7 @@
             content: "";
             position: absolute;
             top: 0px;
-            height: 37px;
+            height: rem(37);
             background-color: $white;
             width: 100%;
             z-index: 2;
@@ -372,43 +369,39 @@
     }
 
     &__row {
-        flex-wrap: wrap;
-        display: flex;
         position: relative;
-        padding: 37px 0px 0px 0px;
-        margin: 0px -50px 70px -50px;
-        @media (max-width: 980px) {
-            margin: 0px -50px 35px -50px;
-        }
-        @media (max-width: 630px) {
-            margin: 0px -50px 10px -50px;
-        }
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: rem(37);
+        margin-right: rem(-50);
+        @include adaptiveValue("margin-right", -50, -25, 970, 767.98, 1);
+        @include adaptiveValue("margin-left", -50, -25, 970, 767.98, 1);
+        @include adaptiveValue("margin-bottom", 70, 10, 970, 767.98, 1);
         &::before,
         &::after {
             content: "";
             position: absolute;
-            top: -12px;
-            content: "";
-            width: 24px * 0.72;
-            height: 24px * 0.72;
-            flex: 0 0 24px * 0.72;
-            margin: 0px 0px 0px 1px;
+            top: rem(-12);
+            width: calc(rem(24) * 0.72);
+            height: calc(rem(24) * 0.72);
+            flex: 0 0 calc(rem(24) * 0.72);
+            margin-top: rem(15);
+            margin-left: rem(1);
             transform: translate(-50%, 0) rotate(135deg);
-            border: 1px solid $primary;
-            margin: 15px 0px 0px 0px;
+            border: rem(1) solid $primary;
             z-index: 3;
         }
         &::after {
             content: "";
             left: 33.333%;
-            @media (max-width: 980px) {
+            @media (max-width: $tablet) {
                 left: 50%;
             }
         }
         &::before {
             content: "";
             left: 66.667%;
-            @media (max-width: 980px) {
+            @media (max-width: $tablet) {
                 display: none;
             }
         }
@@ -416,8 +409,10 @@
 
     &__column {
         flex: 0 1 33.333%;
-        padding: 0px 50px 25px 50px;
-        margin: 0px 0px 25px 0px;
+        @include adaptiveValue("padding-right", 50, 25, 970, 767.98, 1);
+        @include adaptiveValue("padding-left", 50, 25, 970, 767.98, 1);
+        padding-bottom: rem(25);
+        margin-bottom: rem(25);
         position: relative;
         display: flex;
         justify-content: center;
@@ -425,46 +420,49 @@
             content: "";
             position: absolute;
             background-color: $primary;
-            width: 10px;
-            height: 10px;
-            flex: 0 0 10px;
+            width: rem(10);
+            height: rem(10);
+            flex: 0 0 rem(10);
             border-radius: 50%;
             left: 50%;
-            top: -30px;
+            top: rem(-30);
             transform: translate(-50%, 0px);
         }
-        @media (max-width: 980px) {
+        @media (max-width: $tablet) {
             flex: 0 1 50%;
         }
-        @media (max-width: 630px) {
+        @media (max-width: em(620)) {
             flex: 1 1 100%;
         }
+    }
+
+    &__item {
     }
 
     &__decor {
         position: absolute;
         top: 0;
         right: 0;
-        width: 24px;
-        height: calc(100% + 8.2px);
+        width: rem(24);
+        height: calc(100% + rem(8));
         transform: translate(50%, 0);
         display: flex;
         flex-direction: column;
         align-items: center;
         &::before {
             content: "";
-            width: 1px;
+            width: rem(1);
             flex: 1 1 auto;
             background-color: $primary;
         }
         &::after {
             content: "";
-            width: 24px * 0.72;
-            height: 24px * 0.72;
-            flex: 0 0 24px * 0.72;
+            width: calc(rem(24) * 0.72);
+            height: calc(rem(24) * 0.72);
+            flex: 0 0 calc(rem(24) * 0.72);
             transform: rotate(-45deg);
-            border: 1px solid $primary;
-            margin: 15px 0px 0px 0px;
+            border: rem(1) solid $primary;
+            margin-top: rem(15);
         }
 
         span {
@@ -475,53 +473,117 @@
             &::before {
                 content: "";
                 background-color: $primary;
-                width: 10px;
-                height: 10px;
-                flex: 0 0 10px;
+                width: rem(10);
+                height: rem(10);
+                flex: 0 0 rem(10);
                 border-radius: 50%;
-                margin: 20px 0;
+                margin: rem(20) 0;
             }
             &::after {
                 content: "";
-                width: 1px;
+                width: rem(1);
                 flex: 1 1 auto;
                 background-color: $primary;
             }
         }
     }
+
     &__text {
-        font-size: 15px;
-        line-height: calc(25 / 15);
+        font-size: rem(15);
+        line-height: math.div(25, 15);
         color: #333333;
-        position: relative;
-        // background: url("../img/lots-all/bg.png") 0 0 repeat-y;
-        padding: 10px 0px 20px 0px;
-        @media (max-width: 767px) {
-            background: none !important;
-            padding: 0px 0px 0px 0px;
-        }
-        &::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: -5px;
-            left: 0;
-            // background: url("../img/lots-all/bg_head.png") 0 0 no-repeat;
-            @media (max-width: 767px) {
-                display: none;
+        @media (min-width: $mobile) {
+            position: relative;
+            background: url("../assets/img/lots-all/bg.png") 0 0 repeat-y;
+            padding: rem(10) 0px rem(20) 0px;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: -5px;
+                z-index: -1;
+                left: 0;
+                background: url("../assets/img/lots-all/bg_head.png") 0 0 no-repeat;
             }
         }
         p {
-            padding: 0px 0px 0px 135px;
-            margin: 0px 0px 25px 0px;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
+            &:not(:last-child) {
+                margin-bottom: rem(25);
             }
-            @media (max-width: 767px) {
-                padding: 0px 0px 0px 0px;
+            @media (min-width: $mobile) {
+                padding-left: rem(135);
             }
         }
+    }
+}
+
+.item {
+    position: relative;
+    padding: rem(25) rem(20) rem(40) rem(20);
+    height: rem(250);
+    width: rem(250);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @media (any-hover: hover) {
+        &:hover {
+            .item__bg-ibg {
+                transform: scale(1.1);
+            }
+        }
+    }
+    &__link {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &__icon {
+        position: relative;
+        z-index: 2;
+        margin-bottom: rem(22);
+    }
+
+    &__title {
+        position: relative;
+        z-index: 2;
+        font-family: PFDin;
+        font-size: rem(21);
+        line-height: math.div(25, 21);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $white;
+        flex: 1 1 auto;
+        text-align: center;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+    &__decor {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__bg-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transition: transform 0.5s ease 0s;
     }
 }
 
