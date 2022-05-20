@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Header, Footer, MainSlider, Lots, Categories } from "./_containers";
+import { Header, Footer, MainSlider, Lots, Categories, Quotes } from "./_containers";
 import * as flsFunctions from "./js/files/functions";
 import dynamicAdaptive from "./js/libs/dynamic_adapt";
 import Services from "./_containers/Services";
@@ -18,52 +18,7 @@ const App = () => {
                 <Lots />
                 <Categories />
                 <Services />
-                <section className="quotes">
-                    <div className="quotes__container _container">
-                        <div className="quotes__header block-header">
-                            <div className="block-header__title title">
-                                <div className="title__item">Интересные</div>
-                                <h2 className="title__main title">ЦитатЫ</h2>
-                            </div>
-                            <div className="block-header__decor block-decor">
-                                <div className="block-decor__items">
-                                    <span></span>
-                                </div>
-                                <div className="block-decor__icon">
-                                    <img src="img/quotes/01.png" alt="" />
-                                </div>
-                                <div className="block-decor__items">
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="quotes__slider slider-quotes">
-                            <div className="slider-quotes__body _swiper">
-                                <div className="slider-quotes__slide">
-                                    <div className="slider-quotes__image">
-                                        <img src="img/quotes/02.png" alt="" />
-                                    </div>
-                                    <div className="slider-quotes__content">
-                                        <div className="slider-quotes__title">
-                                            «Легче одурачить людей, чем убедить их в том, что они одурачены»
-                                        </div>
-                                        <div className="slider-quotes__info">
-                                            <p>Марк Твен</p>
-                                            <p>1935 - 1910</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="slider-quotes__control control-slider-quotes">
-                                <div className="control-slider-quotes__decor"></div>
-                                <div className="control-slider-quotes__link">
-                                    <img src="img/quotes/03.png" alt="" />
-                                </div>
-                                <div className="control-slider-quotes__decor"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <Quotes />
                 <div className="info">
                     <div className="info__container _container">
                         <div className="info__row">

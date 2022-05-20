@@ -698,23 +698,21 @@
 //========================================================================================================================================================
 
 .quotes {
-    padding: 65px 0px 70px 0px;
-    @media (max-width: 767px) {
-        padding: 35px 0px 40px 0px;
+    @include adaptiveValue("padding-top", 65, 35, 970, 797.98, 1);
+    @include adaptiveValue("padding-bottom", 70, 40, 970, 767.98, 1);
+    &__container {
     }
+
     &__header {
-        @media (max-width: 570px) {
-            margin: 0px 0px 20px 0px;
+        @media (max-width: em(600)) {
+            margin-bottom: rem(20);
         }
     }
-}
 
-.slider-quotes {
-    &__slide {
-        align-items: center;
-        display: flex;
-        @media (max-width: 570px) {
-            display: block;
+    &__body {
+        @media (min-width: em(600)) {
+            align-items: center;
+            display: flex;
         }
     }
 
@@ -722,78 +720,39 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0px 20px 0px 20px;
-        flex: 0 0 320px/950px * 100%;
+        padding: 0px rem(20);
+        flex: 0 0 percent(320, 970);
         img {
             max-width: 205px;
         }
     }
+
     &__content {
-        flex: 0 1 515px;
-        @media (max-width: 570px) {
+        flex: 0 1 rem(520);
+        @media (max-width: em(600)) {
             text-align: center;
         }
     }
 
     &__title {
-        font-size: 25px;
-        line-height: calc(30 / 25);
+        font-size: rem(25);
+        line-height: math.div(30, 25);
         font-style: italic;
         color: $black;
-        margin: 0px 0px 30px/25px * 1em 0px;
+        margin-bottom: rem(30);
     }
 
     &__info {
-        font-size: 15px;
+        font-size: rem(15);
         color: #1c242a;
+        @media (max-width: em(600)) {
+            margin-bottom: rem(20);
+        }
         p {
-            margin: 0px 0px 7px 0px;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
+            &:not(:last-child) {
+                margin-bottom: rem(8);
             }
         }
-        @media (max-width: 570px) {
-            margin: 0px 0px 20px 0px;
-        }
-    }
-}
-.control-slider-quotes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 400px;
-    margin: 0 auto;
-    &__decor {
-        flex: 0 1 33.333%;
-        display: flex;
-        align-items: center;
-        &::before {
-            content: "";
-            flex: 1 1 auto;
-            height: 1px;
-            background-color: $primary;
-        }
-        &::after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            border: 1px solid $primary;
-            margin: 0px 0px 0px 5px;
-        }
-        &:last-child {
-            flex-direction: row-reverse;
-            &::after {
-                margin: 0px 5px 0px 0px;
-            }
-        }
-    }
-
-    &__link {
-        text-align: center;
-        flex: 0 1 33.333%;
-        cursor: pointer;
-        border-radius: 50%;
     }
 }
 
